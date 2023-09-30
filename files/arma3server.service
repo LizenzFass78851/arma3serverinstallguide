@@ -1,0 +1,14 @@
+[Unit]
+# Abschnitt wird im Artikel systemd/Units beschrieben
+Description=Arma 3 Server
+
+[Service]
+Type=simple
+ExecStart=/root/server/runner/arma3.sh
+User=root
+Group=root
+WorkingDirectory=/root/server/runner
+
+[Install]
+# Abschnitt wird im Artikel systemd/Units beschrieben
+WantedBy=multi-user.target
