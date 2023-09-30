@@ -8,6 +8,6 @@
 - [generate the servercfg](https://a3config.byjokese.com/) and copy it to the arma3server main directory
 - [Insert and activate the systemctl service](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units) with the [partially preconfigured template](./files/arma3server.service)
 - Copy the [arma3 start script](./files/arma3.sh) into the appropriate directory
-  - the directory for the arma3 start script, if different, also adapt it to the systemctl service file so that the script is also started
-  - Check the arma3 start script to see whether the directory stored as a variable where the arma3 server is installed needs to be adjusted.
+  - the directory for the arma3 start script, if different, also adapt it to [the systemctl service file](https://github.com/LizenzFass78851/arma3serverinstallguide/blob/3e3e4889deb3c6ab052f8dc6d118cf7e9fac993f/files/arma3server.service#L7) so that the script is also started
+  - Check the arma3 start script to see whether [the directory](https://github.com/LizenzFass78851/arma3serverinstallguide/blob/3e3e4889deb3c6ab052f8dc6d118cf7e9fac993f/files/arma3.sh#L2) stored as a variable where the arma3 server is installed needs to be adjusted.
 - then start the arma3 service via systemctl.
