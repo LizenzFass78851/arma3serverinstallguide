@@ -4,7 +4,8 @@ arma3exe=arma3server_x64
 servercfg=server.cfg
 
 function runcommand() {
-	./$arma3exe -config=$servercfg
+        ./$arma3exe -config=$servercfg \
+        -mod=$(ls | grep "@" | tr "\n" ";")
 }
 
 # change workdir
