@@ -8,6 +8,16 @@ function runcommand() {
         -mod=$(ls | grep "@" | tr "\n" ";")
 }
 
+function fixnotlowercase() {
+        MODS="$(ls | grep "@")"
+        for MOD in ${MODS}; do
+        cd $MOD
+                for file in ./*/*; do mv "$file" "$(echo $file | tr '[:upper:]' '[:lower:]')";
+                done
+        cd ..
+        done
+}
+
 # change workdir
 cd $arma3folder
 
@@ -23,8 +33,8 @@ do
 
    echo Starting Arma3 Server again
 
-   ## fix not lowercase problem
-   # for file in ./@*/*/*; do mv "$file" "$(echo $file | tr '[:upper:]' '[:lower:]')"; done
+   # fix not lowercase problem
+   fixnotlowercase
 
    # execute Arma3 server again
    runcommand
