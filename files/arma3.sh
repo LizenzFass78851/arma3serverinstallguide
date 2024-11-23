@@ -9,6 +9,7 @@ runcommand() {
 }
 
 fixnotlowercase() {
+# high experimental
 scanfiles=y
 scandirs=y
 mods=$(ls | grep "^@")
@@ -54,7 +55,7 @@ while true; do
     echo "Starting Arma3 Server again"
 
     # fix not lowercase problem
-    fixnotlowercase
+    #fixnotlowercase
 
     # execute Arma3 server again
     runcommand
