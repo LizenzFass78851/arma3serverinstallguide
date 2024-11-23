@@ -27,8 +27,8 @@ prepare
 # create arma3 folder
 mkdir -p /srv/steamlibrary/steamapps/common/arma3
 
-# install net-tools
-apt install net-tools -y
+# install deps
+apt install net-tools rename -y
 
 # fix path error
 grep -qxF 'export PATH=$PATH:/usr/games' ~/.bashrc || \
@@ -76,7 +76,25 @@ systemctl start arma3server
 
 -----
 
-## Q&A
+### instructions for installing mods on arma3server
+- To download and install the mods (e.g. [Audi RS3 sedan 2023](https://steamcommunity.com/sharedfiles/filedetails/?id=3190514797) with id `3190514797`), execute the following commands (stop the arma 3 server beforehand and start it again at the end with the commands mentioned in the q&a)
+
+prepare
+```bash
+steamcmd
+```
+
+on steamcmd
+```bash
+force_install_dir /srv/steamlibrary/steamapps/common/arma3
+login username yourpassword
+workshop_download_item 107410 id_of_this_mod_from_steamworkshop validate
+quit
+```
+
+-----
+
+#### Q&A
 
 - If there are any errors during execution or the Arma3 server is not accessible even though the Arma3 server service is started, the service log can be displayed using the following command.
 ```bash
@@ -108,5 +126,3 @@ app_update 233780
 quit
 ```
 
-- ~~To insert the mods, they must be downloaded from the workshop on the Steam client (not the server) and then via the Arma3 launcher, select the "mods" menu item, right-click on the selected mod, then click on "open folder" and then upload the mod folder (starts with the "@" characters) to the server, specifically in the main directory where the Arma3 server is located and not in a subfolder such as "mods" or "servermods" as this is selected by the start script.~~
-  - **Inserting and running mods and server mods is not possible or not fully possible with the Arma3 installation from this guide.**
