@@ -5,12 +5,12 @@ arma3exe='arma3server_x64'
 servercfg='server.cfg'
 
 runcommand() {
-    ./$arma3exe -config=$servercfg -cpuCount=$(nproc) -mod=$(ls | grep "@" | tr "\n" ";")
+    ./$arma3exe -config=$servercfg -cpuCount=$(nproc) -mod="$(ls | grep "@" | tr "\n" ";")"
 }
 
 fixnotlowercase() {
     for mod in $(ls | grep "@"); do
-        cd $mod
+        cd "$mod"
         find . -type f | while read -r file; do
             mv "$file" "$(echo $file | tr '[:upper:]' '[:lower:]')"
         done
