@@ -5,40 +5,36 @@ arma3workshop='$arma3folder/steamapps/workshop/content/107410'
 arma3exe='arma3server_x64'
 servercfg='server.cfg'
 
+mkdir -p $arma3workshop
+mkdir $arma3folder/keys
+
 runcommand() {
     ./$arma3exe -config=$servercfg -cpuCount=$(nproc) -nosound -mod="$(ls | grep "^@" | tr "\n" ";")"
 }
 
 createsymlinksformods() {
-if [ -d "$arma3workshop" ]; then
-  cd "$arma3workshop"
-  origmods=$(ls)
-  IFS=$'\n' # Set the internal field separator to line break
-  for mod in $origmods; do
-    ln -s "$mod" "$arma3folder/@$mod"
-  done
-  cd "$arma3folder"
-fi
+cd "$arma3workshop"
+origmods=$(ls)
+IFS=$'\n' # Set the internal field separator to line break
+for mod in $origmods; do
+  ln -s "$mod" "$arma3folder/@$mod"
+done
+cd "$arma3folder"
 }
 
 fixnotlowercase() {
-if [ -d "$arma3workshop" ]; then
-  cd "$arma3workshop"
-  find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
-  cd "$arma3folder"
-fi
+cd "$arma3workshop"
+find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
+cd "$arma3folder"
 }
 
 copybikeys() {
-if [ -d "$arma3workshop" ]; then
-  cd "$arma3workshop"
-  mkdir $arma3folder/keys
-  bikeys=$(find ./* | grep "/keys/" | grep ".bikey")
-  for bikey in ${bikeys}; do
-    cp $bikey $arma3folder/keys/
-  done
-  cd "$arma3folder"
-fi
+cd "$arma3workshop"
+bikeys=$(find ./* | grep "/keys/" | grep ".bikey")
+for bikey in ${bikeys}; do
+  cp $bikey $arma3folder/keys/
+done
+cd "$arma3folder"
 }
 
 # change workdir
