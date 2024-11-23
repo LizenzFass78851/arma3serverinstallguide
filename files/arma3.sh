@@ -19,7 +19,6 @@ if [ -d "$arma3workshop" ]; then
   done
   cd "$arma3folder"
 fi
-
 }
 
 fixnotlowercase() {
@@ -30,11 +29,25 @@ if [ -d "$arma3workshop" ]; then
 fi
 }
 
+copybikeys() {
+if [ -d "$arma3workshop" ]; then
+  cd "$arma3workshop"
+  mkdir $arma3folder/keys
+  bikeys=$(find ./* | grep "/keys/" | grep ".bikey")
+  for bikey in ${bikeys}; do
+    cp $bikey $arma3folder/keys/
+  done
+  cd "$arma3folder"
+fi
+}
+
 # change workdir
 cd $arma3folder
 
-# create mod symlinks
+# handling with mods
 createsymlinksformods
+fixnotlowercase
+copybikeys
 
 # execute Arma3 server
 echo "Starting Arma3 Server"
@@ -46,9 +59,6 @@ while true; do
     sleep 10s
 
     echo "Starting Arma3 Server again"
-
-    # fix not lowercase problem
-    fixnotlowercase
 
     # execute Arma3 server again
     runcommand
