@@ -24,8 +24,15 @@ sudo apt install steamcmd
 
 prepare
 ```bash
+# create arma3 folder
 mkdir -p /srv/steamlibrary/steamapps/common/arma3
 
+# fix path error
+grep -qxF 'export PATH=$PATH:/usr/games' ~/.bashrc || \
+  echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc && \
+  source ~/.bashrc
+
+# execute steamcmd
 steamcmd
 ```
 
