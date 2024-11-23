@@ -40,7 +40,7 @@ on steamcmd
 ```bash
 force_install_dir /srv/steamlibrary/steamapps/common/arma3
 login username yourpassword
-app_update 233780 validate
+app_update 233780 -beta creatordlc validate
 quit
 ```
 
@@ -101,6 +101,6 @@ on steamcmd
 ```bash
 force_install_dir /srv/steamlibrary/steamapps/common/arma3
 login username yourpassword
-app_update 233780 validate
+app_update 233780 -beta creatordlc validate
 quit
 ```
