@@ -6,7 +6,7 @@ arma3exe='arma3server_x64'
 servercfg='server.cfg'
 
 runcommand() {
-    ./$arma3exe -config=$servercfg -cpuCount=$(nproc) -mod="$(ls | grep "^@" | tr "\n" ";")"
+    ./$arma3exe -config=$servercfg -cpuCount=$(nproc) -nosound -mod="$(ls | grep "^@" | tr "\n" ";")"
 }
 
 createsymlinksformods() {
