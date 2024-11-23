@@ -107,3 +107,5 @@ login username yourpassword
 app_update 233780 -beta creatordlc
 quit
 ```
+
+- To insert the mods, they must be downloaded from the workshop on the Steam client (not the server) and then via the Arma3 launcher, select the "mods" menu item, right-click on the selected mod, then click on "open folder" and then upload the mod folder (starts with the "@" characters) to the server, specifically in the main directory where the Arma3 server is located and not in a subfolder such as "mods" or "servermods" as this is selected by the start script.
