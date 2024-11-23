@@ -27,6 +27,9 @@ prepare
 # create arma3 folder
 mkdir -p /srv/steamlibrary/steamapps/common/arma3
 
+# install net-tools
+apt install net-tools -y
+
 # fix path error
 grep -qxF 'export PATH=$PATH:/usr/games' ~/.bashrc || \
   echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc && \
