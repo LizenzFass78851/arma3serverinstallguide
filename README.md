@@ -77,7 +77,7 @@ systemctl start arma3server
 -----
 
 ### instructions for installing mods on arma3server
-- To download and install the mods (e.g. [Amur tools](https://steamcommunity.com/sharedfiles/filedetails/?id=2689649214) with id `2689649214`), execute the following commands (stop the arma 3 server beforehand and start it again at the end with the commands mentioned in the q&a)
+- To download and install the mods (e.g. [Audi RS3 sedan 2023](https://steamcommunity.com/sharedfiles/filedetails/?id=3190514797) with id `3190514797`), execute the following commands (stop the arma 3 server beforehand and start it again at the end with the commands mentioned in the q&a)
 
 prepare
 ```bash
