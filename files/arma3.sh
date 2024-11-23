@@ -1,7 +1,7 @@
 #!/bin/bash
 
 arma3folder='/srv/steamlibrary/steamapps/common/arma3'
-arma3workshop='$arma3folder/steamapps/workshop/content/107410'
+arma3workshop='$(echo $arma3folder)/steamapps/workshop/content/107410'
 arma3exe='arma3server_x64'
 servercfg='server.cfg'
 
