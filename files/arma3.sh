@@ -6,7 +6,7 @@ arma3exe='arma3server_x64'
 servercfg='server.cfg'
 
 mkdir -p $arma3workshop
-mkdir $arma3folder/keys
+mkdir -p $arma3folder/keys
 
 runcommand() {
     ./$arma3exe -config=$servercfg -cpuCount=$(nproc) -nosound -mod="$(ls | grep "^@" | tr "\n" ";")"
