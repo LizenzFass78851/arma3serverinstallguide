@@ -1,31 +1,35 @@
 # arma3serverinstallguide
-- This is a short installation guide from an inexperienced arma 3 server maintainer that will make it easier to install arma3server on Linux (ubuntu).
-#### Success not guaranteed
+- This is a short installation guide from an inexperienced arma 3 server maintainer that will make it easier to install arma3server on Linux (ubuntu or debian).
+
+> [!WARNING]
+> **Success not guaranteed**
 
 ### instructions for installing arma3server on linux (ubuntu or debian)
-- [install steamcmd](https://developer.valvesoftware.com/wiki/SteamCMD#Package_From_Repositories)
-  - Ubuntu
+1. [install steamcmd](https://developer.valvesoftware.com/wiki/SteamCMD#Package_From_Repositories)
+
+Ubuntu
 ```bash
 add-apt-repository multiverse; sudo dpkg --add-architecture i386; sudo apt update
 apt install steamcmd
 ```
-
-  - Debian
+    
+Debian
 ```bash
 # To install SteamCMD add the non-free repository and x86 packages must be enabled. In Debian 12 (Bookworm) the apt-add-repository command no longer works, so you will need to create a work-around # (See also: https://stackoverflow.com/questions/76688863/apt-add-repository-doesnt-work-on-debian-12).
 sudo apt update; sudo apt install software-properties-common; sudo apt-add-repository non-free; sudo dpkg --add-architecture i386; sudo apt update
 sudo apt install steamcmd
 ```
 
-- [Follow the following instructions to download arma3 via steamcmd](https://www-ionos-de.translate.goog/digitalguide/server/knowhow/arma-3-server-erstellen/?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp) (do not start yet)
-  - prepare
+2. [Follow the following instructions to download arma3 via steamcmd](https://www-ionos-de.translate.goog/digitalguide/server/knowhow/arma-3-server-erstellen/?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp) (do not start yet)
+
+prepare
 ```bash
 mkdir -p /srv/steamlibrary/steamapps/common/arma3
 
 steamcmd
 ```
 
-  - on steamcmd
+on steamcmd
 ```bash
 force_install_dir /srv/steamlibrary/steamapps/common/arma3
 login username yourpassword
@@ -33,28 +37,29 @@ app_update 233780 validate
 quit
 ```
 
-- [generate the servercfg](https://a3config.byjokese.com/) or use [this example](./files/server.cfg) and copy it to the arma3server main directory
-  - for use this example
+3. [generate the servercfg](https://a3config.byjokese.com/) or use [this example](./files/server.cfg) and copy it to the arma3server main directory
+
+for use this example
 ```bash
 wget https://github.com/LizenzFass78851/arma3serverinstallguide/raw/refs/heads/main/files/server.cfg \
   -O /srv/steamlibrary/steamapps/common/arma3/server.cfg
 ```
 
-- Copy the [arma3 start script](./files/arma3.sh) into the arma3server main directory
+4. Copy the [arma3 start script](./files/arma3.sh) into the arma3server main directory
 ```bash
 wget https://github.com/LizenzFass78851/arma3serverinstallguide/raw/refs/heads/main/files/arma3.sh \
   -O /srv/steamlibrary/steamapps/common/arma3/arma3.sh
 chmod +x /srv/steamlibrary/steamapps/common/arma3/arma3.sh
 ```
 
-- Install the [Systemctl Service](./files/arma3server.service)
+5. Install the [Systemctl Service](./files/arma3server.service)
 ```bash
 wget https://github.com/LizenzFass78851/arma3serverinstallguide/raw/refs/heads/main/files/arma3server.service \
   -O /etc/systemd/system/arma3server.service
 systemctl enable arma3server
 ```
 
-- then start the arma3 service via systemctl.
+6. then start the arma3 service via systemctl.
 ```bash
 systemctl start arma3server
 ```
@@ -79,12 +84,13 @@ systemctl restart arma3server
 ```
 
 - To update the arma 3 server data, update the arma 3 server via steamcmd (stop the systemctl service first)
-  - prepare
+
+prepare
 ```bash
 steamcmd
 ```
 
-  - on steamcmd
+on steamcmd
 ```bash
 force_install_dir /srv/steamlibrary/steamapps/common/arma3
 login username yourpassword
