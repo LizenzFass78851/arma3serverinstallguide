@@ -1,7 +1,7 @@
 #!/bin/bash
 
 arma3folder='/srv/steamlibrary/steamapps/common/arma3'
-arma3workshop='$(echo $arma3folder)/steamapps/workshop/content/107410'
+arma3workshop='/srv/steamlibrary/steamapps/common/arma3/steamapps/workshop/content/107410'
 arma3exe='arma3server_x64'
 servercfg='server.cfg'
 
@@ -14,10 +14,9 @@ runcommand() {
 
 createsymlinksformods() {
 cd "$arma3workshop"
-origmods=$(ls)
-IFS=$'\n' # Set the internal field separator to line break
-for mod in $origmods; do
-  ln -s "$mod" "$arma3folder/@$mod"
+origmods=$(find "./" -type d -maxdepth 1 | sed 's#^./##g' | sed 's# #%20#g' | sed -e '1d')
+for mod in ${origmods}; do
+  ln -s "./$mod" "$arma3folder/@$mod"
 done
 cd "$arma3folder"
 }
@@ -30,7 +29,7 @@ cd "$arma3folder"
 
 copybikeys() {
 cd "$arma3workshop"
-bikeys=$(find ./* | grep "/keys/" | grep ".bikey")
+bikeys=$(find "./" | grep "/keys/" | grep ".bikey")
 for bikey in ${bikeys}; do
   cp $bikey $arma3folder/keys/
 done
