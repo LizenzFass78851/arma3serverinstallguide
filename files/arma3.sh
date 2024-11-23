@@ -1,10 +1,10 @@
 #!/bin/bash
-arma3folder='/root/Steam/steamapps/common/Arma*'
+arma3folder='/srv/steamlibrary/steamapps/common/arma3'
 arma3exe=arma3server_x64
 servercfg=server.cfg
 
 function runcommand() {
-        ./$arma3exe -config=$servercfg \
+        ./$arma3exe -config=$servercfg -cpuCount=$(nproc) \
         -mod=$(ls | grep "@" | tr "\n" ";")
 }
 

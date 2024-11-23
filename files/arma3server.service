@@ -4,10 +4,10 @@ Description=Arma 3 Server
 
 [Service]
 Type=simple
-ExecStart=/root/server/runner/arma3.sh
+ExecStart=/srv/steamlibrary/steamapps/common/arma3/arma3.sh
 User=root
 Group=root
-WorkingDirectory=/root/server/runner
+WorkingDirectory=/srv/steamlibrary/steamapps/common/arma3
 
 [Install]
 # Abschnitt wird im Artikel systemd/Units beschrieben
