@@ -16,7 +16,7 @@ createsymlinksformods() {
 cd "$arma3workshop"
 origmods=$(find "./" -type d -maxdepth 1 | sed 's#^./##g' | sed 's# #%20#g' | sed -e '1d')
 for mod in ${origmods}; do
-  ln -s "./$mod" "$arma3folder/@$mod"
+  ln -s "$(pwd)/$mod" "$arma3folder/@$mod"
 done
 cd "$arma3folder"
 }
