@@ -9,6 +9,7 @@
 
 Ubuntu
 ```bash
+# To install SteamCMD the multiverse repository and x86 packages must be enabled.
 sudo add-apt-repository multiverse; sudo dpkg --add-architecture i386; sudo apt update
 sudo apt install steamcmd
 ```
