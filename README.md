@@ -6,6 +6,9 @@
 
 > [!NOTE]
 > - An AIO install script to install Arma3Server is available.
+> - [Arma3.sh](./files/arma3.sh) can now also be started with parameters to install and update mods and update the Arma3 server.
+>   - for help output `./arma3.sh -?`
+>   - Please note the [following (restart arma3server)](./README.md#qa) after updating or installing mods.
 
 ### instructions for installing arma3server on linux (ubuntu or debian)
 1. [install steamcmd](https://developer.valvesoftware.com/wiki/SteamCMD#Package_From_Repositories)
