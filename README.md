@@ -4,6 +4,9 @@
 > [!WARNING]
 > **Success not guaranteed**
 
+> [!NOTE]
+> - An AIO install script to install Arma3Server is available.
+
 ### instructions for installing arma3server on linux (ubuntu or debian)
 1. [install steamcmd](https://developer.valvesoftware.com/wiki/SteamCMD#Package_From_Repositories)
 
