@@ -62,8 +62,9 @@ grep -qxF 'export PATH=$PATH:/usr/games' ~/.bashrc || \
 
 # Create Arma 3 folder
 echo "Creating Arma 3 folder..."
-if [ ! -x /srv/steamlibrary/steamapps/common/arma3 ] && \
+if [ ! -d /srv/steamlibrary/steamapps/common/arma3 ]; then
   mkdir -p /srv/steamlibrary/steamapps/common/arma3
+fi
 
 # Prompt for Steam login credentials
 echo "Please enter your Steam login credentials."
@@ -79,14 +80,14 @@ steamcmd +force_install_dir /srv/steamlibrary/steamapps/common/arma3 \
 unset steam_username steam_password
 
 # Download server.cfg
-if [ ! -x /srv/steamlibrary/steamapps/common/arma3/server.cfg ]; then
+if [ ! -f /srv/steamlibrary/steamapps/common/arma3/server.cfg ]; then
   echo "Downloading server.cfg..."
   wget https://github.com/LizenzFass78851/arma3serverinstallguide/raw/refs/heads/main/files/server.cfg \
   -O /srv/steamlibrary/steamapps/common/arma3/server.cfg
 fi
 
 # Download arma3.sh
-fi [ ! -x /srv/steamlibrary/steamapps/common/arma3/arma3.sh ]; then
+if [ ! -f /srv/steamlibrary/steamapps/common/arma3/arma3.sh ]; then
   echo "Downloading arma3.sh..."
   wget https://github.com/LizenzFass78851/arma3serverinstallguide/raw/refs/heads/main/files/arma3.sh \
   -O /srv/steamlibrary/steamapps/common/arma3/arma3.sh
@@ -95,7 +96,7 @@ fi
 
 
 # Install arma3server.service
-if [ ! -x /etc/systemd/system/arma3server.service ]; then
+if [ ! -f /etc/systemd/system/arma3server.service ]; then
   echo "Installing arma3server.service..."
   wget https://github.com/LizenzFass78851/arma3serverinstallguide/raw/refs/heads/main/files/arma3server.service \
   -O /etc/systemd/system/arma3server.service
