@@ -38,9 +38,10 @@ mkdir -p /srv/steamlibrary/steamapps/common/arma3
 apt install net-tools rename -y
 
 # fix path error
-grep -qxF 'export PATH=$PATH:/usr/games' ~/.bashrc || \
-  echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc && \
+if ! grep -qxF 'export PATH=$PATH:/usr/games' ~/.bashrc; then
+  echo 'export PATH=$PATH:/usr/games' >> ~/.bashrc
   source ~/.bashrc
+fi
 
 # execute steamcmd
 steamcmd
