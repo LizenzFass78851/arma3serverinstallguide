@@ -21,11 +21,34 @@ sudo apt install steamcmd
 ```
     
 Debian
+
+> In Debian 12 (Bookworm) the apt-add-repository command no longer works, so you will need to create a work-around (See also: https://stackoverflow.com/questions/76688863/apt-add-repository-doesnt-work-on-debian-12).
+
+> Consequently, the situation on Debian 13 is the same. In fact as mentioned the tools add-apt-repository and software-properties-gtk are no longer available by default.
+> You can manually edit /etc/apt/sources.list or files in /etc/apt/sources.list.d/ to add repositories. Or attempt to install it from the unstable repository by adding the following to /etc/apt/sources.list:
+
+```
+deb https://deb.debian.org/debian/ unstable main contrib non-free
+```
+
+> Then run:
+
 ```bash
-# To install SteamCMD add the non-free repository and x86 packages must be enabled. In Debian 12 (Bookworm) the apt-add-repository command no longer works, so you will need to create a work-around # (See also: https://stackoverflow.com/questions/76688863/apt-add-repository-doesnt-work-on-debian-12).
+sudo apt-get update
+sudo apt-get -t unstable install software-properties-common
+```
+
+<details><summary>Debian up to version 11</summary>
+<p>
+
+```bash
+# To install SteamCMD in older debian versions add the non-free repository and x86 packages must be enabled. 
 sudo apt update; sudo apt install software-properties-common; sudo apt-add-repository non-free; sudo dpkg --add-architecture i386; sudo apt update
 sudo apt install steamcmd
 ```
+
+</p>
+</details> 
 
 2. [Follow the following instructions to download arma3 via steamcmd](https://www.ionos.com/digitalguide/server/know-how/create-arma-3-server) (do not start yet)
 
