@@ -27,7 +27,7 @@ sudo apt update; sudo apt install software-properties-common; sudo apt-add-repos
 sudo apt install steamcmd
 ```
 
-2. [Follow the following instructions to download arma3 via steamcmd](https://www-ionos-de.translate.goog/digitalguide/server/knowhow/arma-3-server-erstellen/?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp) (do not start yet)
+2. [Follow the following instructions to download arma3 via steamcmd](https://www.ionos.com/digitalguide/server/know-how/create-arma-3-server) (do not start yet)
 
 prepare
 ```bash
